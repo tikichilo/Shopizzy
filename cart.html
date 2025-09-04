@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart - ShopIzzy</title>
+    <link rel="stylesheet" href="cart.css">
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+      <!-- Background Video Layer -->
+<video autoplay muted loop id="bg-video">
+    <source src="videos/background vid.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+  </video>
+
+<header>
+  <div class="logo-container">
+    <h1><span class="shop">Shop</span><span class="izzy">Izzy</span></h1>
+  </div>    
+  <nav>
+    <ul>
+      <li class="dropdown">
+        <a href="#">☰</a>
+        <div class="dropdown-content">
+          <a href="Home.html">Home</a>
+            <a href="receipts.php">Receipts</a>
+           <a href="logout.php">Logout</a>
+        </div>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<div class="content-overlay">
+
+<section id="cart-section">
+    <h2 class="xon">Your Shopping Cart</h2>
+    <div id="cart-items-container">
+        </div>
+    <div class="cart-summary">
+        <p>Grand Total:<span id="cart-total">0.00</span></p>
+        <div class="cart-actions">
+            <button onclick="clearCart()" class="clear-cart-btn">Clear Cart</button>
+            <button onclick="proceedToCheckout()" class="checkout-btn">Proceed to Checkout</button>
+        </div>
+    </div>
+</section>
+
+</div>
+
+<footer>
+    <p>&copy; 2025 ShopIzzy. All Rights Reserved.</p>
+</footer>
+
+<script src="main.js"></script>
+<script src="cart.js"></script>
+<script src="events.js"></script>
+</body>
+</html>

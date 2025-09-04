@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopIzzy - Landing Page</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Playfair Display', serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Enhanced Background Video */
+        #bg-video {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -2;
+            transform: translateX(-50%) translateY(-50%);
+            opacity: 0.3;
+            filter: blur(1px) contrast(1.2);
+        }
+
+        /* Animated background particles */
+        .bg-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #ffaa00;
+            border-radius: 50%;
+            animation: float 15s infinite linear;
+            opacity: 0.7;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+            }
+            90% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Glass morphism overlay */
+        .glass-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            z-index: -1;
+        }
+
+        .content-wrapper {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 40px;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            border: 1px solid rgba(255, 170, 0, 0.2);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.4),
+                0 0 80px rgba(255, 170, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            max-width: 800px;
+            width: 90%;
+        }
+
+        .eli {
+            color: #ffffff;
+            font-weight: 400;
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            margin-bottom: 15px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            opacity: 0.9;
+            position: relative;
+        }
+
+        .eli::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #ffaa00, transparent);
+        }
+
+        .ela {
+            font-size: clamp(3rem, 8vw, 7rem);
+            margin: 20px 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            position: relative;
+            text-shadow: 0 0 30px rgba(255, 170, 0, 0.5);
+        }
+
+        .shop {
+            color: #ffaa00;
+            background: linear-gradient(45deg, #ffaa00, #fbff00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 0 20px rgba(255, 170, 0, 0.6));
+            position: relative;
+        }
+
+        .shop::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, #ffaa00, #fbff00);
+            opacity: 0.3;
+            z-index: -1;
+            filter: blur(20px);
+            transform: scale(1.1);
+        }
+
+        .izzy {
+            color: white;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+            margin-left: 10px;
+        }
+
+        .intro-text {
+            color: #ffffff;
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            text-align: center;
+            max-width: 600px;
+            margin: 30px auto;
+            line-height: 1.8;
+            padding: 0 20px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            opacity: 0.95;
+            position: relative;
+        }
+
+        .intro-text::before {
+            content: '"';
+            font-size: 4rem;
+            color: #ffaa00;
+            position: absolute;
+            top: -20px;
+            left: -10px;
+            opacity: 0.3;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .intro-text::after {
+            content: '"';
+            font-size: 4rem;
+            color: #ffaa00;
+            position: absolute;
+            bottom: -40px;
+            right: -10px;
+            opacity: 0.3;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .button-container {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .button {
+            padding: 18px 40px;
+            font-size: 18px;
+            font-weight: 600;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 
+                0 10px 30px rgba(0, 0, 0, 0.3),
+                0 0 0 1px rgba(255, 170, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .button:hover::before {
+            left: 100%;
+        }
+
+        .get-started-button {
+            background: linear-gradient(135deg, #ffaa00 0%, #fbff00 100%);
+            color: #000000;
+            font-weight: 700;
+            transform: translateY(0);
+        }
+
+        .get-started-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 
+                0 20px 40px rgba(255, 170, 0, 0.4),
+                0 0 50px rgba(255, 170, 0, 0.3);
+            background: linear-gradient(135deg, #fbff00 0%, #ffaa00 100%);
+        }
+
+        .get-started-button:active {
+            transform: translateY(-3px) scale(1.02);
+        }
+
+        /* Enhanced Animations */
+        @keyframes fadeZoomIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.8) translateY(30px);
+                filter: blur(10px);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+                filter: blur(0);
+            }
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                text-shadow: 0 0 20px rgba(255, 170, 0, 0.5);
+            }
+            50% {
+                text-shadow: 0 0 30px rgba(255, 170, 0, 0.8), 0 0 40px rgba(255, 170, 0, 0.3);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.02);
+            }
+        }
+
+        .eli {
+            animation: fadeZoomIn 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.2s both;
+        }
+
+        .ela {
+            animation: 
+                fadeZoomIn 1.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.6s both,
+                glow 3s ease-in-out 2s infinite;
+        }
+
+        .intro-text {
+            animation: fadeZoomIn 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) 1.2s both;
+        }
+
+        .button-container {
+            animation: fadeZoomIn 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) 1.6s both;
+        }
+
+        .content-wrapper {
+            animation: 
+                fadeZoomIn 1.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0s both,
+                pulse 6s ease-in-out 3s infinite;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .content-wrapper {
+                padding: 30px 20px;
+                margin: 20px;
+            }
+            
+            .eli {
+                font-size: 1.2rem;
+                letter-spacing: 2px;
+            }
+            
+            .ela {
+                font-size: 3.5rem;
+            }
+            
+            .intro-text {
+                font-size: 1rem;
+                margin: 20px auto;
+            }
+            
+            .button {
+                padding: 15px 30px;
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .content-wrapper {
+                padding: 25px 15px;
+            }
+            
+            .ela {
+                font-size: 2.8rem;
+                flex-direction: column;
+                gap: 5px;
+            }
+            
+            .shop, .izzy {
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Video Layer -->
+    <video autoplay muted loop id="bg-video">
+        <source src="videos/background vid.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+
+    <!-- Animated Background Particles -->
+    <div class="bg-particles"></div>
+
+    <!-- Glass Overlay -->
+    <div class="glass-overlay"></div>
+
+    <div class="content-wrapper">
+        <h2 class="eli">Welcome To</h2>
+        <h1 class="ela">
+            <span class="shop">Shop</span><span class="izzy">Izzy</span>
+        </h1>
+
+        <p class="intro-text">
+            ShopIzzy is your intelligent online shopping assistant. Discover the best deals, smart recommendations,
+            and a seamless experience tailored just for you.
+        </p>
+
+        <div class="button-container">
+            <button class="button get-started-button" onclick="location.href='welcome.html'">Get Started</button>
+        </div>
+    </div>
+
+    <script>
+        // Create floating particles
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            
+            // Random position
+            particle.style.left = Math.random() * 100 + '%';
+            
+            // Random animation duration
+            particle.style.animationDuration = (Math.random() * 20 + 10) + 's';
+            
+            // Random delay
+            particle.style.animationDelay = Math.random() * 5 + 's';
+            
+            // Random size
+            const size = Math.random() * 3 + 1;
+            particle.style.width = size + 'px';
+            particle.style.height = size + 'px';
+            
+            document.querySelector('.bg-particles').appendChild(particle);
+            
+            // Remove particle after animation
+            setTimeout(() => {
+                particle.remove();
+            }, 25000);
+        }
+
+        // Create particles continuously
+        setInterval(createParticle, 500);
+
+        // Create initial particles
+        for (let i = 0; i < 20; i++) {
+            setTimeout(createParticle, i * 100);
+        }
+
+        // Add subtle mouse movement effect
+        document.addEventListener('mousemove', (e) => {
+            const contentWrapper = document.querySelector('.content-wrapper');
+            const { clientX, clientY } = e;
+            const x = (clientX / window.innerWidth - 0.5) * 20;
+            const y = (clientY / window.innerHeight - 0.5) * 20;
+            
+            contentWrapper.style.transform = `translate(${x}px, ${y}px)`;
+        });
+
+        // Reset position when mouse leaves
+        document.addEventListener('mouseleave', () => {
+            const contentWrapper = document.querySelector('.content-wrapper');
+            contentWrapper.style.transform = 'translate(0, 0)';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+/* Search Form */
+.search-form {
+    display: flex;
+    justify-content: center;
+    margin: 30px auto;
+    max-width: 600px;
+    padding: 10px;
+    gap: 10px;
+}
+
+#search-input {
+    flex: 1;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 1px solid #ffffff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.search-form button {
+    padding: 12px 20px;
+    background-color: #ffaa00; /* ShopIzzy Gold */
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.search-form button:hover {
+    background-color: #fbff00; /* Lighter gold on hover */
+    color: #333;
+}
+
+/* 🔮 AI Product Card (Mini but Modern) */
+.ai-product-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 14px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+    padding: 18px;
+    width: 220px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #ffaa00;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    backdrop-filter: blur(6px); /* ✨ Subtle modern blur */
+}
+
+.ai-product-card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+}
+
+.ai-product-card img {
+    max-width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    transition: transform 0.3s ease;
+}
+
+.ai-product-card:hover img {
+    transform: scale(1.03);
+}
+
+.ai-product-card h4 {
+    font-size: 1rem;
+    color: #222;
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+.ai-product-card p {
+    font-size: 0.9rem;
+    color: #0056d2;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.ai-product-card small {
+    font-size: 0.75rem;
+    color: #999;
+    margin-top: 6px;
+}
+
+/* ✨ AI Add to Cart Button */
+.ai-product-card button {
+    margin-top: auto;
+    padding: 8px 16px;
+    background: linear-gradient(to right, #ffaa00, #ffcc00);
+    color: #000;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.ai-product-card button:hover {
+    background: linear-gradient(to right, #fbff00, #ffe100);
+    color: #222;
+}
+
+/* Title with Line Styling */
+.recommendation-title {
+    position: relative;
+    text-align: center;
+    font-weight: 700;
+    color: #006600;
+    margin: 30px 0 20px;
+    font-size: 1.3rem;
+}
+
+.recommendation-title::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    border-top: 1px solid #ffaa00;
+    z-index: -1;
+}
+
+.recommendation-title span {
+    background: #fff;
+    padding: 0 14px;
+    position: relative;
+    z-index: 1;
+}
+
+#product-container hr {
+    border: none;
+    height: 2px;
+    background-color: #ddd;
+    margin: 30px 0 20px;
+}

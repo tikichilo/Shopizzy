@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #fff8e1; /* Light golden background */
+    color: #4a2c00; /* Dark brown text */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    text-align: center;
+    border: 2px solid #000000;
+}
+
+h2 {
+    color: #ffaa00; /* ShopIzzy's main accent color */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-weight: bold;
+    text-align: left;
+    color: #4a2c00; /* Dark brown text for better contrast */
+}
+
+input {
+    width: 95%;
+    padding: 10px;
+    border: 1px solid #ffaa00; /* Accent color border */
+    border-radius: 5px;
+}
+
+button {
+    background-color: #ffaa00;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #e69b00; /* Slightly darker shade for hover effect */
+}
+
+p {
+    margin-top: 10px;
+    color: #4a2c00;
+}
+
+a {
+    color: #ffaa00;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}

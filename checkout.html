@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Checkout - ShopIzzy</title>
+  <link rel="stylesheet" href="" />
+   <link rel="stylesheet" href="check.css" />
+  
+</head>
+<body>
+
+  <!-- Background Video -->
+  <video autoplay muted loop id="bg-video">
+    <source src="videos/background vid.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+  </video>
+
+  <!-- Header -->
+  <header>
+    <div class="logo-container">
+      <h1><span class="shop">Shop</span><span class="izzy">Izzy</span></h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="Home.html">Home</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Checkout Section -->
+  <div class="content-overlay">
+    <section class="checkout-container">
+      <h2 class="checkout-title">Checkout</h2>
+
+      <div id="checkout-items-container"></div>
+      <div class="total">Grand Total: ZMW <span id="grand-total">0.00</span></div>
+
+      <!-- Payment Method Dropdown -->
+      <div class="dropdown-container">
+        <button class="dropdown-button" onclick="toggleDropdown()">Choose Payment Method</button>
+        <div class="dropdown-options" id="payment-options">
+          <button onclick="showForm('Bank')">Bank</button>
+          <button onclick="showForm('Mobile Money')">Mobile Money</button>
+        </div>
+      </div>
+
+<!-- Dynamic Checkout Form -->
+<form class="checkout-form" method="POST" action="checkout.php" id="checkout-form">
+  <input type="hidden" name="payment_method" id="payment_method" />
+
+  <!-- Shipping Info -->
+  <input type="text" name="full_name" placeholder="Full Name" required />
+  <input type="text" name="address" placeholder="Shipping Address" required />
+  <input type="email" name="email" placeholder="Email Address" required />
+  <input type="text" name="phone" placeholder="Phone Number" required />
+
+  <!-- Bank Fields -->
+  <div id="bank-fields" style="display:none;">
+    <input type="text" name="card_holder" placeholder="Card Holder Name" />
+    <input type="text" name="card_number" placeholder="Card Number" />
+    <input type="text" name="expiry_date" placeholder="Expiry Date (MM/YY)" />
+    <input type="text" name="cvv" placeholder="CVV" />
+  </div>
+
+  <!-- Mobile Money Fields -->
+  <div id="mobile-fields" style="display:none;">
+    <input type="text" name="mobile_holder" placeholder="Account Holder Name" />
+    <input type="text" name="mobile_number" placeholder="Mobile Money Number" />
+    <input type="text" name="provider" placeholder="Provider (e.g. MTN, Airtel)" />
+  </div>
+
+  <!-- Cart data -->
+  <textarea id="cart-data" name="cart_data" style="display:none;"></textarea>
+
+  <button type="submit" class="pay-button">Pay Now</button>
+</form>
+
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 ShopIzzy. All Rights Reserved.</p>
+  </footer>
+
+  <script src="checkout.js"></script>
+
+</body>
+</html>
